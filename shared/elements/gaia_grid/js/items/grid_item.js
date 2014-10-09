@@ -204,7 +204,8 @@
 
       // Handle relative URLs
       if (!UrlHelper.hasScheme(icon)) {
-        icon = this.app.origin + icon;
+        var url = new URL(icon, this.app.origin);
+        icon = url.toString();
       }
 
       return icon;
